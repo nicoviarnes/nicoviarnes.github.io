@@ -1,0 +1,132 @@
+body {
+    background-color: #eee;
+}
+
+.header{
+    width: 100%;
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ccc;
+}
+
+.inner-header {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.nav-header {
+    float: left;
+    background-color: #4AAAA5;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    padding: 15px 15px 15px 15px;
+}
+
+.menu {
+    float: right;
+    margin-top: 2%;
+}
+
+.menu a {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #777;
+    text-decoration: none;
+    margin: 0px 15px 0px 15px;
+}
+
+.container {
+    width: 930px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #777;
+    padding: 15px 15px 15px 15px;
+    line-height: 2;
+}
+
+.container h1 {
+    padding: 15px 0px 15px 0px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #4AAAA5;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+.placeholder {
+    float: left;
+    margin-right: 15px;
+    width:150px;
+    height: 150px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #666;
+    border-top: 5px solid #4AAAA5;
+    color: white;
+    text-align: center;
+}
+
+.footer-content {
+    padding-top: 25px;
+    width: 960px;
+    margin: 0 auto;
+    font-size: 10px;
+}
+
+.contact {
+    width: 100%;
+}
+
+.message {
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.port {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.submit {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    text-align: center;
+    background-color: #4AAAA5;
+    color: #fff;
+}
+
+.thumbnail {
+    width: 30%;
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-pic {
+    width: 90%;
+}
+
+.text-block {
+    text-align: center;
+    position: absolute;
+    width: 90%;
+    bottom: 10%;
+    left: 5%;
+    background-color: #4AAAA5;
+    color: white;
+    padding: 15px 0px 15px 0px;
+}
+
+.effect:hover {
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+    filter: blur(5px);
+}
