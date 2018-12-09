@@ -1,5 +1,5 @@
 body {
-    background-color: #eee;
+    background-image: url("../images/what-the-hex.png")
 }
 
 .header{
@@ -105,6 +105,11 @@ body {
     color: #fff;
 }
 
+.submit:hover {
+    background-color: #59CCC6;
+    transform: scale(1.1);  
+}
+
 .thumbnail {
     width: 30%;
     position: relative;
@@ -127,6 +132,15 @@ body {
 }
 
 .effect:hover {
-    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
-    filter: blur(5px);
+    transform: scale(1.1);
+}
+
+a:hover {
+    color: #59CCC6;
+    font-weight: 700;
+}
+
+.nav-header:hover {
+    color: #5E7F7E;
+    background-color: #59CCC6;
 }
