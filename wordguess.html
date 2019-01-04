@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JS Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">    
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="tv">
+            <img id="tvpic" class="img-fluid" src="images/tv.png">
+        </div> 
+        <div class="tv-screen">
+            <h3 id="instructions">Press Any Key To<br>Start</h3>
+            <h2 id="wordLabel"></h2>
+            <br>
+            <h2><span id="current-word"> </span></h2>
+            <br><br>
+            <p class="history">Guesses: <br><span id="history"> </span></p>
+            <h2 class="guesses"><img class="heart" src="images/heart.png"> <span id="remaining"> 5</span></h2>
+            <br><br><br>
+            <p class="wins">W: <span id="wins"></span></p>
+            <p class="losses">L: <span id="losses"></span></p>            
+        </div>
+
+        <div class="controller">
+            <img id="controllerpic" class="img-fluid" src="images/controller.png">
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="logic.js" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+}
+
+.tv {
+    position: relative;
+}
+
+#current-word {
+    letter-spacing: 5px;
+}
+
+#tvpic {
+    width: 40%;
+}
+
+.tv-screen {
+    position: absolute;
+    top: 30%;
+    left: 38.5%;
+    color: white;
+}
+
+.heart {
+    width: 25px;
+    height: 25px;
+}
+
+.history {
+    float: left;
+}
+
+.guesses {
+    float: right;
+}
+
+.wins {
+    float: left;
+}
+
+.losses {
+    float: right;
+    margin-right: 15px;
+}
