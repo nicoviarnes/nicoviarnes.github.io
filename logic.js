@@ -53,17 +53,19 @@ let gameStarted = false;
 let currentWord;
 
 //wait for document to be loaded before executing script
-$(document).ready(function() {
+//document.addEventListener('DOMContentLoaded', function(){
   //listen for a keypress
-  $(document).keyup(function(event) {
+  document.onkeyup = (function(event) {
     if(letterBank.indexOf(event.key) !== -1) {
       //if game hasnt started then hide instructions, set gameStarted to true, and write the game text to the DOM
       if (!gameStarted) {
         //select random answer from lis of possible answers
         currentWord = gameList[Math.floor(Math.random() * gameList.length)];        
         gameStarted = true;
-        $("#instructions").hide();
-        $("#wordLabel").text("Guess The Game");
+        document.getElementById("instructions").style.visibility = 'hidden';
+        //$("#instructions").hide();
+        document.getElementById("wordLabel").innerHTML = "Guess The Game";
+        //$("#wordLabel").text("Guess The Game");
 
         //push '_' to wordBlanks once for every letter in the answer. Eg: Zelda -> _ _ _ _ _
         for (let i = 0; i < currentWord.length; i++) {
@@ -71,14 +73,17 @@ $(document).ready(function() {
         }
 
         //write wordBlanks to the DOM
-        $("#current-word").text(wordBlanks.join(" "));
+        document.getElementById("current-word").innerHTML = wordBlanks.join(" ");
+
+       // $("#current-word").text(wordBlanks.join(" "));
 
         //if game has started, check to see if input is part of the current word, if it is display it
       } else {
         for (let i = 0; i < currentWord.length; i++) {
           if (event.key === currentWord[i].toLowerCase()) {
             wordBlanks[i] = event.key;
-            $("#current-word").text(wordBlanks.join(" "));
+            document.getElementById("current-word").innerHTML = wordBlanks.join(" ");            
+            //$("#current-word").text(wordBlanks.join(" "));
           }
         }
 
@@ -88,8 +93,10 @@ $(document).ready(function() {
             remaining--;
             guesses.push(event.key);
           }
-          $("#remaining").text(remaining);
-          $("#history").text(guesses.join(", "));
+          document.getElementById("remaining").innerHTML = remaining;
+          document.getElementById("history").innerHTML = guesses.join(", ");
+          //$("#remaining").text(remaining);
+          //$("#history").text(guesses.join(", "));
         }
 
         //if there are no more blanks in the word, you have won, update all stats
@@ -101,12 +108,18 @@ $(document).ready(function() {
           console.log(remaining)
           console.log('about to add a win')
           wins++;
-          $("#wordLabel").text("");
-          $("#current-word").text("");
-          $("#instructions").show();
-          $("#remaining").text(remaining);
-          $("#history").text(guesses.join(", "));
-          $("#wins").text(wins);
+          document.getElementById("wordLabel").innerHTML = "";
+          document.getElementById("current-word").innerHTML = "";
+          document.getElementById("instructions").style.visibility = 'visible';
+          document.getElementById("remaining").innerHTML = remaining;
+          document.getElementById("history").innerHTML = guesses.join(", ");
+          document.getElementById("wins").innerHTML = wins;
+          //$("#wordLabel").text("");
+          //$("#current-word").text("");
+          //$("#instructions").show();
+          //$("#remaining").text(remaining);
+          //$("#history").text(guesses.join(", "));
+          //$("#wins").text(wins);
         }
 
         //if no more lives are remaining, end the game and reset
@@ -118,16 +131,22 @@ $(document).ready(function() {
           console.log(remaining)
           console.log('about to add a loss ')
           losses++;
-          $("#wordLabel").text("");
-          $("#current-word").text("");
-          $("#instructions").show();
-          $("#remaining").text(remaining);
-          $("#history").text(guesses.join(", "));
-          $("#losses").text(losses);
+          document.getElementById("wordLabel").innerHTML = "";
+          document.getElementById("current-word").innerHTML = "";
+          document.getElementById("instructions").style.visibility = 'visible';
+          document.getElementById("remaining").innerHTML = remaining;
+          document.getElementById("history").innerHTML = guesses.join(", ");
+          document.getElementById("losses").innerHTML = losses;
+          //$("#wordLabel").text("");
+          //$("#current-word").text("");
+          // $("#instructions").show();
+          // $("#remaining").text(remaining);
+          // $("#history").text(guesses.join(", "));
+          // $("#losses").text(losses);
         }
       }
     } else {
       alert("Press a key from A-Z");
     }
   });
-});
+
