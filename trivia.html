@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Trivia!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/trivia.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="inner">
+                <img class="qimage"></img>
+                <h2 id="timer"></h2>
+                <h1 id="currentQuestion"></h1>
+                <br>
+                <div id="answers"></div>
+                <button class="start btn btn-primary">Start Game!</button>
+                <br><br>
+                <p class="instructions">Press "Start Game" to begin the quiz. You will have 30 seconds to answer each question. The Trivia is game themed, there are 10 questions. Good luck!</p>
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="assets/javascript/trivia.js"></script>
+</html>
