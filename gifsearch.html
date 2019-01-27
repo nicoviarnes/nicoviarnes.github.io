@@ -76,7 +76,7 @@
       $(".searchBtn").on("click", function(event) {
         event.preventDefault();
         const q = $("#searchInput").val();
-        const queryURL = `http://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
+        const queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -98,7 +98,7 @@
       $(document).on("click", "#searchTag", function(event) {
         event.preventDefault();
         const q = $(this).text();
-        const queryURL = `http://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
+        const queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
         $.ajax({
           url: queryURL,
           method: "GET"
