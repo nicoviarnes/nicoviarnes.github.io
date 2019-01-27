@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stop: It's Giphy time</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form-inline">
+        <input
+          id="searchInput"
+          class="form-control"
+          style="width:80%"
+          type="text"
+          placeholder="Search for GIFs!"
+        />
+
+        <button style="width:20%" class="searchBtn btn btn-primary float-right">
+          Search!
+        </button>
+        <br /><br /><br />
+        <div id="buttons" class="mx-auto text-center"></div>
+
+        <div id="gif-results" class="container mx-auto text-center"></div>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      const key = "D3kuAKZbWBJgOL6conbDsAQna3uHPjpw";
+
+      const topics = [
+        "cat",
+        "dog",
+        "rabbit",
+        "gorilla",
+        "chinchilla",
+        "zebra",
+        "horse",
+        "fish",
+        "chimpanzee",
+        "hamster",
+        "rhino"
+      ];
+
+      topics.forEach(topic => {
+        let button = $(
+          "<button class='btn btn-info' id='searchTag' style='margin:5px 5px 5px 5px'>"
+        ).text(topic);
+        $("#buttons").append(button);
+      });
+
+      const updatePage = res => {
+        res.data.forEach(data => {
+          console.log(data);
+          let div = $("<div class='float-left col-sm-4'>");
+          let gif = $("<img class='gif img-fluid'>")
+            .attr("src", data.images.fixed_height_still.url)
+            .attr("data-still", data.images.fixed_height_still.url)
+            .attr("data-animate", data.images.fixed_height.url)
+            .attr("data-state", "still");
+          let rating = $("<p>").text(`Rating: ${data.rating}`);
+
+          div.append(gif, rating);
+          $("#gif-results").prepend(div);
+        });
+      };
+
+      $(".searchBtn").on("click", function(event) {
+        event.preventDefault();
+        const q = $("#searchInput").val();
+        const queryURL = `http://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          updatePage(response);
+        });
+
+        if (topics.indexOf(q.toLowerCase()) === -1) {
+          topics.push(q);
+          let button = $(
+            "<button class='btn btn-info' id='searchTag' style='margin:5px 5px 5px 5px'>"
+          ).text(q);
+          $("#buttons").append(button);
+        } else {
+          return;
+        }
+      });
+
+      $(document).on("click", "#searchTag", function(event) {
+        event.preventDefault();
+        const q = $(this).text();
+        const queryURL = `http://api.giphy.com/v1/gifs/search?api_key=${key}&q=${q}&limit=10`;
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          updatePage(response);
+        });
+      });
+
+      // play and pause gifs
+      $(document).on("click", ".gif", function() {
+        let state = $(this).attr("data-state");
+        let dataAnimate = $(this).attr("data-animate");
+        let dataStill = $(this).attr("data-still");
+
+        if (state === "still") {
+          $(this).attr("src", dataAnimate);
+          $(this).attr("data-state", "animate");
+        } else if (state === "animate") {
+          $(this).attr("src", dataStill);
+          $(this).attr("data-state", "still");
+        }
+      });
+    </script>
+  </body>
+</html>
